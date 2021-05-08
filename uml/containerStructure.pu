@@ -1,0 +1,47 @@
+@startuml
+
+cloud 公式シラバスサーバ
+
+cloud "システムクラウド"{
+
+
+
+    node "data-container" {
+        database "PostgreSQL" {
+          [ユーザ情報]
+          [ユーザ登録シラバス情報]
+          [シラバス情報]
+        }
+    }
+
+    node "syllabus-get-container"{
+        [シラバス取得システム] <- 公式シラバスサーバ : getData
+        [シラバス取得システム] --> [シラバス情報]
+    }
+
+    node "webserver-container"{
+        [Caddyサーバ]
+    }
+
+    node "frontend-container"{
+        [Caddyサーバ] <--> [フロントエンド] : routes
+    }
+
+    node "user-container" {
+        [Caddyサーバ] <--> [ユーザ管理システム] : routes
+        [ユーザ管理システム] <--> [ユーザ情報] : manages
+        [ユーザ管理システム] <--> [ユーザ登録シラバス情報] : manages
+    }
+
+    node "syllabus-search-container" {
+        [Caddyサーバ] <--> [シラバス検索システム] : routes
+        [シラバス検索システム] <-- [シラバス情報]
+    }
+
+}
+
+Access --> HTTPS
+HTTPS --> [Caddyサーバ]
+
+
+@enduml
