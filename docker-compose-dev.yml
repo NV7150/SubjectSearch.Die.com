@@ -1,6 +1,6 @@
-version: '2'
+version: '3'
 services:
-  syllabus-get-api:
-    build: syllabus-get-api
+  syllabus-get-server:
+    build: syllabus-get-server
     ports:
       - "8080:80"
