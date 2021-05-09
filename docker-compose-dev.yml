@@ -1,18 +1,19 @@
 version: '3'
 services:
-  syllabus-get-server:
-    build: syllabus-get-server
+  application-server:
+    build: application-server
     ports:
       - "8080:80"
-
   db:
     image: postgres:10
+    # Please create .env to define POSTGRES_USR, POSGRES_PASSWORD, and POSTGRES_DB
     environment:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
       - POSTGRES_DB
     ports:
       - "15432:5432"
+    # Please create directory "db_file" in ./db directory
     volumes:
       - ./db/db_file:/var/lib/postgresql/data
       - ./db/initdb:/docker-entrypoint-initdb.d
