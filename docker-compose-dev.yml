@@ -4,3 +4,15 @@ services:
     build: syllabus-get-server
     ports:
       - "8080:80"
+
+  db:
+    image: postgres:10
+    environment:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
+    ports:
+      - "15432:5432"
+    volumes:
+      - ./db/db_file:/var/lib/postgresql/data
+      - ./db/initdb:/docker-entrypoint-initdb.d
