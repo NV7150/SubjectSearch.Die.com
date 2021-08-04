@@ -95,6 +95,7 @@ class Subject(Base):
     semester = Column(Enum(Semester))
     place = Column(Enum(Place))
     is_giga = Column(Boolean)
+    about = Column(String(1024))
 
     staffs_arr = relationship("StaffCorresp", backref="subjects")
     lecture_schedule = relationship("LectureSchedule", backref="subjects")
