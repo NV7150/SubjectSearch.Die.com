@@ -1,1 +1,4 @@
-beatu
+beautifulsoup4
+SQLAlchemy
+pydantic
+psycopg2

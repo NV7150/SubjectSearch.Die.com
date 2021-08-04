@@ -1,0 +1,41 @@
+#データベースモデル一覧
+
+##Subject
+<dl>
+    <dt>id</dt>
+        <dd>科目id</dd>
+    <dt>name</dt>
+        <dd>科目名</dd>
+    <dt>faculty</dt>
+        <dd>学部・研究科</dd>
+    <dt>class</dt>
+        <dd>科目分野(先端科目など)</dd>
+    <dt>sortCode</dt>
+        <dd>科目ソートのコード</dd>
+    <dt>credit</dt>
+        <dd>単位数</dd>
+    <dt>semester</dt>
+        <dd>開講学期</dd>
+    <dt>term</dt>
+        <dd>開講時期，前半/後半/通期</dd>
+    <dt>day</dt>
+        <dd>開講曜日</dd>
+    <dt>period</dt>
+        <dd>開講時限</dd>
+    <dt>teacher</dt>
+        <dd>担当教員</dd>
+    <dt>method</dt>
+        <dd>実施形態</dd>
+    <dt>lang</dt>
+        <dd>使用言語</dd>
+    <dt>location</dt>
+        <dd>実施場所</dd>
+    <dt>approach</dt>
+        <dd>授業形態</dd>
+    <dt>giga</dt>
+        <dd>GIGAサティフィケート</dd>
+    <dt>tag</dt>
+        <dd>講義タグ</dd>
+    <dt>summary</dt>
+        <dd>講義概要文</dd>
+</dl>
