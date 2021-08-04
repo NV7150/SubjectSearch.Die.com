@@ -1,6 +1,11 @@
 from sqlalchemy import *
 from sqlalchemy.orm import *
+import os
 from sqlalchemy.ext.declarative import declarative_base
 
-engine = create_engine(f"postgresql://user:apbLJvZkNiE7HF5ALj3tgunR3Yx4BwYc@db:5432/db")
+path = f"postgresql://" \
+       + os.environ["POSTGRES_USER"] + ":" \
+       + os.environ["PGPASSWORD"] +"@db:5432/" + os.environ["POSTGRES_DB"]
+
+engine = create_engine(path)
 Base = declarative_base()
