@@ -9,8 +9,10 @@ import Url
 import Model exposing (RootModel, Msg(..))
 import Model exposing (Route(..))
 import View exposing (view)
-import Utils.Lang
 import Utils.Lang exposing (Language(..))
+import Aspect.Model
+import Aspect.Aspect
+
 import Url.Parser
 
 
@@ -28,7 +30,7 @@ main =
 
 init : flags -> Url.Url -> Nav.Key -> ( RootModel, Cmd Msg )
 init flags url key =
-    ( RootModel key url JA_JP , Cmd.none )
+    ( RootModel key url JA_JP Aspect.Model.fakeModel , Cmd.none )
 
 
 update : Msg -> RootModel -> ( RootModel, Cmd Msg )
@@ -53,6 +55,15 @@ update msg model =
             in
             ( { model | url = url, lang = lang }
             , Cmd.none
+            )
+        
+        AspectMsg subMsg ->
+            let
+                (subModel, subCmd) =
+                    Aspect.Aspect.update subMsg model.aspectPage
+            in
+            ( { model | aspectPage = subModel }
+            , Cmd.map AspectMsg subCmd
             )
 
 

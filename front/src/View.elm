@@ -5,8 +5,8 @@ import Browser
 import Model exposing (RootModel, Msg(..), Route(..))
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Utils.Lang exposing (MultiLangText, mltext)
-import Utils.Lang exposing (Language)
+import Utils.Lang exposing (MultiLangText, mltext, Language)
+import Aspect.View
 
 
 
@@ -18,18 +18,16 @@ view model =
                 Just (Home, _) ->
                     { title = mltext model.lang <| MultiLangText "ホーム" "Home"
                     , body =
-                        div []
-                            [ a [ href "/genre" ] [ text "/genre" ] 
-                            , a [ href "/en/genre" ] [ text "/en/genre"]
+                        div [ class "indexpage" ]
+                            [ a [ href "/aspect" ] [ text "/aspect" ] 
+                            , a [ href "/en/aspect" ] [ text "/en/aspect"]
                             ]
                     }
-                Just (GenreIndex, _) ->
+                Just (AspectIndex, _) ->
                     { title = mltext model.lang <| MultiLangText "ジャンル別" "By Genre"
                     , body =
-                        div []
-                            [ text
-                                <| mltext model.lang <| MultiLangText "ジャンル別" "By Genre"
-                            ]
+                        Aspect.View.view model
+                            |> Html.map AspectMsg
                     }
                 Nothing ->
                     { title = "404"
