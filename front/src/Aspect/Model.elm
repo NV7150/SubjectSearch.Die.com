@@ -35,11 +35,11 @@ fakeModel =
         [ Classification (MultiLangText "生きる方法論" "Life Methodology")
             <| List.repeat 12
                 <| Aspect (MultiLangText "自然言語" "Natural Language")
-                    <| List.repeat 10 (MultiLangText "プロジェクト英語B" "Natural Language")
+                    <| List.repeat 20 (MultiLangText "言語と思考" "LANGUAGE AND THOUGHT")
         , Classification (MultiLangText "探求のスケール" "Scale of Inquiry")
             <| List.repeat 8
                 <| Aspect (MultiLangText "ナノ" "Nano")
-                    <| List.repeat 10 (MultiLangText "プロジェクト英語B" "Natural Language")
+                    <| List.repeat 20 (MultiLangText "ゲノム分子生物学１" "GENOMIC MOLECULAR BIOLOGY 1")
         ]
     }
     

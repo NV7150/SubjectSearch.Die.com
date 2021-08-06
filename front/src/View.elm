@@ -50,9 +50,11 @@ navView : RootModel -> Html Msg
 navView model =
     nav [ id "nav" ]
         [ div [ id "logo" ]
-            [ p [] 
-                [ text
-                    <| mltext model.lang <| MultiLangText "科目検索.死ぬ.com" "SubjectSearch.Die.com"
+            [ a [ href "/" ]
+                [ p [] 
+                    [ text
+                        <| mltext model.lang <| MultiLangText "科目検索.死ぬ.com" "SubjectSearch.Die.com"
+                    ]
                 ]
             ]
         , div [ id "searchbox", class "searchbox" ]

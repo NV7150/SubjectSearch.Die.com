@@ -1,0 +1,41 @@
+
+
+div.aspect-page div.classification h2 {
+    border-bottom: solid 2px #c7c7c7;
+}
+
+
+div.aspect-page div.classification div.aspects {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+div.aspect-page div.classification div.aspects div.aspect {
+    width: 12rem;
+    height: 12rem;
+
+    padding: 1rem;
+    margin-right: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    border-radius: 1rem;
+    box-shadow: 4px 4px 24px -3px #0000003d;
+}
+
+div.aspect-page div.classification div.aspects div.aspect h3 {
+    margin-top: 0;
+}
+
+div.aspect-page div.classification div.aspects div.aspect div.subjects {
+    overflow: hidden;
+    height: 8.5rem;
+
+    font-size: 0.7rem;
+    color: #8c8c8c;
+
+    overflow-wrap: break-word;
+    word-break: break-all;
+
+}

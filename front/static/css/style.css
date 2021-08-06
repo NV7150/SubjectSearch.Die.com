@@ -12,6 +12,31 @@ body {
     font-family: 'Noto Sans JP', sans-serif;
 }
 
+h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 1.38rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 1.18rem;
+    font-weight: 500;
+}
+
+h5 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
 nav {
     width: auto;
     height: 3rem;
@@ -26,8 +51,12 @@ nav {
 
 #app {
     min-height: calc(100vh - 3rem);  /* 100vh - navbar */
+    padding: 1rem;
 }
 
+nav #logo a {
+    text-decoration: none;
+}
 
 nav #logo p {
     margin: 0;
