@@ -1,0 +1,76 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
+
+:root {
+    --brand-color: #4f80ff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+nav {
+    width: auto;
+    height: 3rem;
+
+    display: flex;
+    align-items: center;
+
+    border-bottom: solid 1px #9c9c9c;
+
+    padding: 0 1rem;
+}
+
+#app {
+    min-height: calc(100vh - 3rem);  /* 100vh - navbar */
+}
+
+
+nav #logo p {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--brand-color);
+}
+
+
+footer {
+    display: flex;
+    justify-content: center;
+    border-top: solid 1px #9c9c9c;
+    padding: 1rem;
+}
+
+footer div {
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: 33%;
+}
+
+footer h1 {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+footer div.about h1 span.logo {
+    padding: .2rem .5rem;
+    background-color: var(--brand-color);
+    color: white;
+}
+
+footer h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+}
+
+footer div.coin p.eth-address {
+    display: inline;
+    color: white;
+    background-color: #595959;
+    padding: .2rem .5rem;
+    font-family: 'Courier New', Courier, monospace;
+}
