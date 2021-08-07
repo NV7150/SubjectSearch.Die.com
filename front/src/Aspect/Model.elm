@@ -17,7 +17,8 @@ type alias Classification =
 
 
 type alias Aspect =
-    { title: MultiLangText
+    { id: Int
+    , title: MultiLangText
     , subjectTitles : List MultiLangText
     }
 
@@ -34,11 +35,11 @@ fakeModel =
     { classList =
         [ Classification (MultiLangText "生きる方法論" "Life Methodology")
             <| List.repeat 12
-                <| Aspect (MultiLangText "自然言語" "Natural Language")
+                <| Aspect 1 (MultiLangText "自然言語" "Natural Language")
                     <| List.repeat 20 (MultiLangText "言語と思考" "LANGUAGE AND THOUGHT")
         , Classification (MultiLangText "探求のスケール" "Scale of Inquiry")
             <| List.repeat 8
-                <| Aspect (MultiLangText "ナノ" "Nano")
+                <| Aspect 2 (MultiLangText "ナノ" "Nano")
                     <| List.repeat 20 (MultiLangText "ゲノム分子生物学１" "GENOMIC MOLECULAR BIOLOGY 1")
         ]
     }

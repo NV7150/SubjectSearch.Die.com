@@ -7,6 +7,7 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Utils.Lang exposing (MultiLangText, mltext, Language)
 import Aspect.View
+import Subject.View
 
 
 
@@ -21,6 +22,10 @@ view model =
                         div [ class "indexpage" ]
                             [ a [ href "/aspect" ] [ text "/aspect" ] 
                             , a [ href "/en/aspect" ] [ text "/en/aspect"]
+                            , p []
+                                [ a [ href "/subjects" ] [ text "subj"]
+                                , a [ href "/en/subjects" ] [ text "en-subj" ]
+                                ]
                             ]
                     }
                 Just (AspectIndex, _) ->
@@ -28,6 +33,12 @@ view model =
                     , body =
                         Aspect.View.view model
                             |> Html.map AspectMsg
+                    }
+                Just (SubjectPage, _) ->
+                    { title = mltext model.lang <| MultiLangText "検索結果" "Results"
+                    , body =
+                        Subject.View.view model
+                            |> Html.map SubjectMsg
                     }
                 Nothing ->
                     { title = "404"
