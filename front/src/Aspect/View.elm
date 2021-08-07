@@ -6,6 +6,8 @@ import Html.Attributes exposing (..)
 import Utils.Lang exposing (MultiLangText, mltext, Language)
 import Model exposing (RootModel)
 import Aspect.Model exposing (..)
+import Html.Events exposing (onClick)
+import Browser.Navigation as Nav
 
 view : RootModel -> Html Msg
 view model =
@@ -31,12 +33,14 @@ classView lang c =
 
 aspectView : Language -> Aspect -> Html Msg
 aspectView lang aspect =
-    div [ class "aspect" ]
-        [ h3 []
-            [ text <| mltext lang aspect.title ]
-        , div [ class "subjects" ]
-            [ text
-                <| String.join "　" 
-                <| List.map (mltext lang) aspect.subjectTitles
+    a [ href ("/subjects?aspect=" ++ String.fromInt aspect.id) ] 
+        [ div [ class "aspect" ]
+            [ h3 []
+                [ text <| mltext lang aspect.title ]
+            , div [ class "subjects" ]
+                [ text
+                    <| String.join "　" 
+                    <| List.map (mltext lang) aspect.subjectTitles
+                ]
             ]
         ]
