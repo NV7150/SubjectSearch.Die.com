@@ -1,12 +1,15 @@
 module Subject.Model exposing (..)
 import Utils.Lang exposing (MultiLangText)
+import Url.Parser.Query exposing (Parser, int, map)
 import Aspect.Model
+import Url exposing (Url)
 
 
 -- MSG
 
-type Msg =
-    Msg1
+type Msg
+    = InitMsg Url
+    | Msg1
 
 
 -- Model
@@ -62,3 +65,15 @@ fakeSubject =
         (MultiLangText "総合・環境" "Policy/Information")
         (MultiLangText (String.repeat 10 "これからの時代は, 様々なほげほげ") (String.repeat 10 "Hogefuga piyopiyo"))
         (MultiLangText "www.google.co.jp" "www.google.co.uk")
+
+
+clearFilter : Filter
+clearFilter =
+    Filter
+        Nothing
+
+
+subjectQueryParser : Parser Filter
+subjectQueryParser =
+    map Filter
+        (int "aspect")

@@ -16,25 +16,25 @@ view model =
     let 
         doc =
             case Url.Parser.parse Model.routeParser model.url of
-                Just (Home, _) ->
+                Just (Home _) ->
                     { title = mltext model.lang <| MultiLangText "ホーム" "Home"
                     , body =
                         div [ class "indexpage" ]
                             [ a [ href "/aspect" ] [ text "/aspect" ] 
                             , a [ href "/en/aspect" ] [ text "/en/aspect"]
                             , p []
-                                [ a [ href "/subjects" ] [ text "subj"]
+                                [ a [ href "/subjects?hoge=1&fuga=2" ] [ text "subj"]
                                 , a [ href "/en/subjects" ] [ text "en-subj" ]
                                 ]
                             ]
                     }
-                Just (AspectIndex, _) ->
+                Just (AspectIndex _) ->
                     { title = mltext model.lang <| MultiLangText "ジャンル別" "By Genre"
                     , body =
                         Aspect.View.view model
                             |> Html.map AspectMsg
                     }
-                Just (SubjectPage, _) ->
+                Just (SubjectPage _ _) ->
                     { title = mltext model.lang <| MultiLangText "検索結果" "Results"
                     , body =
                         Subject.View.view model
