@@ -24,7 +24,7 @@ services:
   syllabus-get-server:
     build:
       context: .
-      dockerfile: ./syllabus-get-server/Dockerfile
+      dockerfile: syllabus_get_server/Dockerfile
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
       - PGPASSWORD=${POSTGRES_PASSWORD}

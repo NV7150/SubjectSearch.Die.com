@@ -8,4 +8,8 @@ done
 
 >&2 echo "Postgres is up - executing command"
 
-exec python3 main.py
+if test $TEST -eq 1 ; then
+  exec python3 test/unittester.py
+else
+  exec python3 syllabus_get_server/main.py
+fi
